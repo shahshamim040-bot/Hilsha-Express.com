@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hilsha Express.com</title>
+    <title>Hilsha Express - Order on WhatsApp</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap');
         body { font-family: 'Hind Siliguri', sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; text-align: center; }
@@ -15,7 +15,7 @@
         .payment-box { background: white; border: 2px solid #28a745; border-radius: 15px; max-width: 380px; margin: 15px auto; width: 92%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .payment-header { background: #28a745; color: white; padding: 10px; font-weight: bold; }
         .bank-info { padding: 12px; text-align: left; font-size: 14px; }
-        .order-btn { background-color: #2ed573; color: white; padding: 15px 35px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; margin: 15px 0; font-weight: bold; width: 85%; }
+        .order-btn { background-color: #25D366; color: white; padding: 15px 35px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; margin: 15px 0; font-weight: bold; width: 85%; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
         .page { display: none; padding: 15px; }
         .active { display: block; }
         .card { background: white; padding: 15px; margin: 10px auto; max-width: 360px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
@@ -36,7 +36,7 @@
                 <p style="color:#ff4757; font-weight:bold;">Chairman</p>
             </div>
         </div>
-        <div class="marquee-container"><marquee>Hilsha Express.com - আপনার প্রিয় খাবার দ্রুততম সময়ে পৌঁছে দিতে আমরা প্রস্তুত!</marquee></div>
+        <div class="marquee-container"><marquee>Hilsha Express - হোয়াটসঅ্যাপে অর্ডার করুন দ্রুত ডেলিভারির জন্য!</marquee></div>
         <div class="payment-box">
             <div class="payment-header">পেমেন্ট ও ব্যাংকিং তথ্য 🏦</div>
             <div class="bank-info">
@@ -45,7 +45,7 @@
                 <p><b>বিকাশ (পার্সোনাল):</b> 01836-476632</p>
             </div>
         </div>
-        <button class="order-btn" onclick="showPage('res-page')">অর্ডার শুরু করুন 🍔🛵</button>
+        <button class="order-btn" onclick="showPage('res-page')">অর্ডার শুরু করুন 🛒</button>
     </div>
 
     <div id="res-page" class="page">
@@ -62,7 +62,6 @@
             <div class="item-row"><span>চিকেন ফ্রাই</span><div><button class="qty-btn" onclick="updateQty('Chicken', -1)">-</button><span id="q-Chicken" style="margin:0 10px; font-weight:bold;">0</span><button class="qty-btn" onclick="updateQty('Chicken', 1)">+</button></div></div>
         </div>
         <button class="order-btn" onclick="showPage('check-page')">ঠিকানা ও পেমেন্ট ✅</button>
-        <p onclick="showPage('res-page')" style="color:blue; cursor:pointer;">পিছনে যান</p>
     </div>
 
     <div id="check-page" class="page">
@@ -77,10 +76,10 @@
                 <option value="Online Payment">বিকাশ / নগদ (অনলাইন)</option>
             </select>
             <div id="online-fields">
-                <input type="text" id="senderNum" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
+                <input type="text" id="senderNum" placeholder="টাকা পাঠানো নম্বর">
                 <input type="text" id="trxId" placeholder="TrxID (ট্রানজেকশন আইডি)">
             </div>
-            <button class="order-btn" onclick="sendOrder()">মেসেঞ্জারে অর্ডার পাঠান 💬</button>
+            <button class="order-btn" onclick="sendWhatsApp()">হোয়াটসঅ্যাপে অর্ডার পাঠান ✅</button>
             <p onclick="showPage('item-page')" style="color:blue; cursor:pointer;">পিছনে যান</p>
         </div>
     </div>
@@ -110,10 +109,10 @@
         }
 
         function toggleOnline() {
-            document.getElementById('online-fields').style.display = (document.getElementById('payMethod').value === 'Online Payment') ? 'block' : 'none';
+            document.getElementById('online-fields').style.display = (document.getElementById('pMethod').value === 'Online Payment') ? 'block' : 'none';
         }
 
-        function sendOrder() {
+        function sendWhatsApp() {
             let name = document.getElementById('custName').value;
             let addr = document.getElementById('custLoc').value;
             let mob = document.getElementById('custMob').value;
@@ -124,27 +123,27 @@
             if(!name || !addr || !mob || !method) { alert("সব তথ্য পূরণ করুন!"); return; }
 
             let items = "";
-            if(cart.Kacchi > 0) items += `• কাচ্চি: ${cart.Kacchi} টি\n`;
-            if(cart.Chicken > 0) items += `• চিকেন ফ্রাই: ${cart.Chicken} টি\n`;
-            if(!items) { alert("আইটেম বেছে নিন!"); return; }
+            if(cart.Kacchi > 0) items += `*বিফ কাচ্চি:* ${cart.Kacchi} টি\n`;
+            if(cart.Chicken > 0) items += `*চিকেন ফ্রাই:* ${cart.Chicken} টি\n`;
+            if(!items) { alert("খাবার বেছে নিন!"); return; }
 
-            // মেসেজ ১০০% ঠিকভাবে সাজানো
-            let fullMsg = `🍔 নতুন অর্ডার (Hilsha Express)\n`;
+            // হোয়াটসঅ্যাপের জন্য সাজানো মেসেজ
+            let fullMsg = `🍔 *নতুন অর্ডার (Hilsha Express)*\n`;
             fullMsg += `--------------------------\n`;
-            fullMsg += `🛒 অর্ডার তালিকা:\n${items}`;
-            fullMsg += `🏪 রেস্টুরেন্ট: ${selectedRes}\n\n`;
-            fullMsg += `📍 কাস্টমার লোকেশন:\nনাম: ${name}\nঠিকানা: ${addr}\nমোবাইল: ${mob}\n\n`;
-            fullMsg += `💳 পেমেন্ট তথ্য:\nমাধ্যম: ${method}\n`;
+            fullMsg += `🛒 *অর্ডার তালিকা:*\n${items}`;
+            fullMsg += `🏪 *রেস্টুরেন্ট:* ${selectedRes}\n\n`;
+            fullMsg += `📍 *কাস্টমার তথ্য:*\n*নাম:* ${name}\n*ঠিকানা:* ${addr}\n*মোবাইল:* ${mob}\n\n`;
+            fullMsg += `💳 *পেমেন্ট:* ${method}\n`;
 
             if(method === 'Online Payment') {
-                fullMsg += `নম্বর: ${sender}\nTrxID: ${trx}`;
+                fullMsg += `*নম্বর:* ${sender}\n*TrxID:* ${trx}`;
             }
 
-            // এই লিঙ্কটি ১০০% গ্যারান্টিসহ ইনবক্সে টেক্সট নিয়ে যাবে
-            let fbID = "61575668837136";
-            let finalURL = "https://m.me/" + fbID + "?text=" + encodeURIComponent(fullMsg);
+            // আপনার হোয়াটসঅ্যাপ নম্বর (বিনা স্পেস বা প্লাস চিহ্ন ছাড়া)
+            let phone = "8801627885003"; 
+            let waLink = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(fullMsg);
             
-            window.location.href = finalURL;
+            window.location.href = waLink;
         }
     </script>
 </body>
