@@ -9,18 +9,17 @@
         
         body { font-family: 'Hind Siliguri', sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #2d3436; min-height: 100vh; overflow-x: hidden; }
         
-        /* হেডার: লোগো ও হেল্প বাটন */
+        /* লোগো ও হেল্প বাটন */
         .header-top { background: white; padding: 10px 15px; display: flex; justify-content: center; align-items: center; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 1001; }
         .main-logo img { height: 60px; border-radius: 10px; }
         .help-btn { position: absolute; right: 15px; background: #ff4757; color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; cursor: pointer; font-weight: bold; border: none; }
 
-        /* হেল্প সেন্টার পপআপ (Modal) */
+        /* হেল্প সেন্টার পপআপ */
         .help-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; }
         .help-content { background: white; padding: 25px; border-radius: 20px; text-align: center; width: 80%; max-width: 300px; }
         .help-link { display: block; padding: 12px; margin: 10px 0; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; }
         .link-wa { background: #25D366; }
         .link-fb { background: #1877F2; }
-        .close-help { color: #888; cursor: pointer; float: right; font-size: 20px; }
 
         /* স্ক্রলিং টেক্সট */
         .marquee-container { background: #2d3436; color: #ff4757; padding: 10px 0; font-weight: bold; font-size: 18px; }
@@ -43,31 +42,32 @@
         .vendor-card { border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; padding-bottom: 10px; cursor: pointer; }
         .vendor-card img { width: 100%; height: 100px; object-fit: contain; background: white; }
         .vendor-card h4 { margin: 8px 0; color: #fff; font-size: 14px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-        
         .c-food { background: linear-gradient(to bottom, #fad0c4, #ffd1ff); }
-        .c-market { background: linear-gradient(to bottom, #a1c4fd, #c2e9fb); }
-        .c-parcel { background: linear-gradient(to bottom, #d4fc79, #96e6a1); }
 
         /* পেজ কন্ট্রোল */
         .page { display: none; padding-bottom: 100px; }
         .active { display: block; }
         
-        /* মেনু ও বিল */
+        /* মেনু আইটেম */
         .item-card { background: rgba(255,255,255,0.9); border-radius: 10px; margin: 8px 15px; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
         .bill-card { background: #2d3436; color: white; padding: 15px; border-radius: 10px; margin: 15px; }
-        .confirm-btn { position: fixed; bottom: 15px; left: 5%; width: 90%; background: #2ecc71; color: white; padding: 15px; border-radius: 50px; border: none; font-size: 18px; font-weight: bold; }
         
-        input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        /* পেমেন্ট বক্স */
+        .payment-box { background: white; padding: 15px; border-radius: 10px; margin-top: 10px; border: 2px dashed #ff4757; display: none; }
+        
+        .confirm-btn { position: fixed; bottom: 15px; left: 5%; width: 90%; background: #2ecc71; color: white; padding: 15px; border-radius: 50px; border: none; font-size: 18px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
     </style>
 </head>
 <body>
 
     <div id="helpModal" class="help-modal">
         <div class="help-content">
-            <span class="close-help" onclick="closeHelp()">&times;</span>
-            <h3 style="margin-top:0;">কিভাবে সাহায্য করতে পারি?</h3>
-            <a href="https://wa.me/8801627885003" class="help-link link-wa" target="_blank">WhatsApp মেসেজ</a>
-            <a href="https://www.facebook.com/yourpage" class="help-link link-fb" target="_blank">Facebook পেজ</a>
+            <span onclick="closeHelp()" style="float:right; cursor:pointer;">&times;</span>
+            <h3>হেল্প সেন্টার</h3>
+            <a href="https://wa.me/8801627885003" class="help-link link-wa">WhatsApp</a>
+            <a href="#" class="help-link link-fb">Facebook Page</a>
         </div>
     </div>
 
@@ -77,205 +77,194 @@
     </div>
 
     <div class="marquee-container">
-        <marquee behavior="scroll" direction="left">ইলিশ এক্সপ্রেস ডট কম - Hilsha Express.com</marquee>
+        <marquee>ইলিশ এক্সপ্রেস ডট কম - Hilsha Express.com</marquee>
     </div>
 
     <div id="home-page" class="page active">
         <div class="slider-container" id="slider">
             <div class="slides" id="slide-track">
-                <div class="slide"><img src="slide1.png" alt="S1"></div>
-                <div class="slide"><img src="slide2.png" alt="S2"></div>
-                <div class="slide"><img src="slide3.png" alt="S3"></div>
-                <div class="slide"><img src="slide4.png" alt="S4"></div>
-                <div class="slide"><img src="slide5.png" alt="S5"></div>
-                <div class="slide"><img src="slide6.png" alt="S6"></div>
-                <div class="slide"><img src="slide7.png" alt="S7"></div>
-                <div class="slide"><img src="slide8.png" alt="S8"></div>
-                <div class="slide"><img src="slide9.png" alt="S9"></div>
-                <div class="slide"><img src="slide10.png" alt="S10"></div>
+                <div class="slide"><img src="slide1.png"></div>
+                <div class="slide"><img src="slide2.png"></div>
+                <div class="slide"><img src="slide3.png"></div>
+                <div class="slide"><img src="slide4.png"></div>
+                <div class="slide"><img src="slide5.png"></div>
+                <div class="slide"><img src="slide6.png"></div>
+                <div class="slide"><img src="slide7.png"></div>
+                <div class="slide"><img src="slide8.png"></div>
+                <div class="slide"><img src="slide9.png"></div>
+                <div class="slide"><img src="slide10.png"></div>
             </div>
         </div>
 
-        <div class="search-box">
-            <input type="text" class="search-bar" placeholder="খুঁজুন..." onkeyup="searchV(this.value)">
-        </div>
-
+        <div class="search-box"><input type="text" class="search-bar" placeholder="খুঁজুন..." onkeyup="searchV(this.value)"></div>
         <div class="cat-row">
             <button class="cat-btn active" onclick="filterCat('all')">সবগুলো</button>
             <button class="cat-btn" onclick="filterCat('food')">রেস্টুরেন্ট</button>
-            <button class="cat-btn" onclick="filterCat('market')">বাজার ও ঔষধ</button>
-            <button class="cat-btn" onclick="filterCat('parcel')">পার্সেল</button>
         </div>
-
         <div class="vendor-grid" id="vGrid"></div>
     </div>
 
     <div id="menu-page" class="page">
-        <div style="background:white; padding:15px; border-bottom:2px solid #ff4757;">
-            <button onclick="showPage('home-page')" style="border:none; background:none; font-size:20px; color:#ff4757; cursor:pointer;">← পিছনে</button>
-            <span id="mTitle" style="font-weight:bold; margin-left:10px;">মেনু</span>
-        </div>
+        <div style="background:white; padding:15px;"><button onclick="showPage('home-page')" style="border:none; background:none; font-size:18px;">← পিছনে</button> <span id="mTitle" style="font-weight:bold; margin-left:10px;"></span></div>
         <div id="mItems"></div>
-        <div class="bill-card">
-            <div style="display:flex; justify-content:space-between;"><span>আইটেম টোটাল:</span> <span id="sub-t">0</span>৳</div>
-            <div style="display:flex; justify-content:space-between;"><span>ডেলিভারি:</span> <span>50৳</span></div>
-            <hr>
-            <div style="display:flex; justify-content:space-between; font-weight:bold; color:#2ecc71;"><span>মোট বিল:</span> <span id="total-t">0</span>৳</div>
-        </div>
-        <button class="confirm-btn" onclick="showPage('checkout-page')">অর্ডার করুন ✅</button>
+        <button class="confirm-btn" onclick="showPage('checkout-page')">অর্ডার রিভিউ করুন</button>
     </div>
 
     <div id="checkout-page" class="page">
         <div style="background:white; padding:15px;"><button onclick="showPage('menu-page')" style="border:none; background:none;">←</button> চেকআউট</div>
+        <div class="bill-card">
+            <div id="bill-items"></div>
+            <hr>
+            <div style="display:flex; justify-content:space-between;"><span>আইটেম টোটাল:</span> <span id="sub-t">0</span>৳</div>
+            <div style="display:flex; justify-content:space-between;"><span>ডেলিভারি চার্জ:</span> <span>50৳</span></div>
+            <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:20px; color:#2ecc71;"><span>মোট বিল:</span> <span id="total-t">0</span>৳</div>
+        </div>
+        
         <div style="padding:15px;">
             <input type="text" id="uName" placeholder="নাম">
             <input type="text" id="uAddr" placeholder="ঠিকানা">
             <input type="text" id="uMob" placeholder="মোবাইল">
-            <select id="payM" onchange="document.getElementById('bank-info').style.display = (this.value=='Online'?'block':'none')">
+            <select id="payM" onchange="togglePay()">
                 <option value="Cash">ক্যাশ অন ডেলিভারি</option>
-                <option value="Online">বিকাশ / নগদ</option>
+                <option value="Bkash">বিকাশ (পার্সোনাল)</option>
+                <option value="Nagad">নগদ (পার্সোনাল)</option>
+                <option value="Bank">ব্যাংক ট্রান্সফার</option>
             </select>
-            <div id="bank-info" style="display:none; background:white; padding:10px; border-radius:10px; margin-top:10px;">
-                বিকাশ: 01836-476632<br>নগদ: 01627885003<br>
+            <div id="pay-box" class="payment-box">
+                <p id="pay-num"></p>
+                <input type="text" id="sender" placeholder="যে নাম্বার থেকে পাঠিয়েছেন">
                 <input type="text" id="trx" placeholder="Transaction ID (TrxID)">
             </div>
-            <button class="confirm-btn" style="background:#25D366;" onclick="finalOrder()">WhatsApp এ পাঠান 🚀</button>
+            <button class="confirm-btn" style="background:#25D366; position:relative; width:100%; margin-top:20px;" onclick="finalOrder()">WhatsApp এ অর্ডার পাঠান 🚀</button>
         </div>
     </div>
 
     <script>
         const vendors = [
-            { id:'v1', name:'Red Chille', cat:'food', cls:'c-food' },
-            { id:'v2', name:'Saiful vhiyar dokan', cat:'food', cls:'c-food' },
-            { id:'v3', name:'Sultan Dine', cat:'food', cls:'c-food' },
-            { id:'v4', name:'All fucka', cat:'food', cls:'c-food' },
-            { id:'v5', name:'Hungary dipatment', cat:'food', cls:'c-food' },
-            { id:'v6', name:'Recipe syndicate', cat:'food', cls:'c-food' },
-            { id:'v7', name:'La Chandpur', cat:'food', cls:'c-food' },
-            { id:'v8', name:'Kacchi lovers', cat:'food', cls:'c-food' },
-            { id:'v9', name:'Kacchi dine', cat:'food', cls:'c-food' },
-            { id:'v10', name:'Kacchi dining', cat:'food', cls:'c-food' },
-            { id:'v11', name:'Kalam beriyani', cat:'food', cls:'c-food' },
-            { id:'v12', name:'Food zone', cat:'food', cls:'c-food' },
-            { id:'v13', name:'Food bank', cat:'food', cls:'c-food' },
-            { id:'v14', name:'Hang out', cat:'food', cls:'c-food' },
-            { id:'v15', name:'Wow momo', cat:'food', cls:'c-food' },
-            { id:'v16', name:'Juice 35', cat:'food', cls:'c-food' },
-            { id:'v17', name:'Food lab', cat:'food', cls:'c-food' },
-            { id:'v18', name:'Aroma', cat:'food', cls:'c-food' },
-            { id:'v19', name:'Burger overload', cat:'food', cls:'c-food' },
-            { id:'vcake', name:'ফাতেমা কেক শপ', cat:'food', cls:'c-food' },
-            { id:'v20', name:'মুদি বাজার', cat:'market', cls:'c-market' },
-            { id:'v21', name:'কাঁচা বাজার', cat:'market', cls:'c-market' },
-            { id:'v22', name:'ঔষধ', cat:'market', cls:'c-market' },
-            { id:'v24', name:'পার্সেল সার্ভিস', cat:'parcel', cls:'c-parcel' }
+            { id: 'kl', name: 'Kacchi Lovers', cat: 'food' },
+            { id: 'rs', name: 'Recipe Syndicate', cat: 'food' },
+            { id: 'ml', name: 'MOMO LA Chandpuira', cat: 'food' },
+            { id: 'hd', name: 'Hungry Department', cat: 'food' },
+            { id: 'wf', name: 'Waffle House', cat: 'food' }
         ];
 
-        // আপনার দেওয়া ছবি থেকে সব আইটেম নির্ভুলভাবে যোগ করা হয়েছে
         const allMenus = {
-            'v8': [{n:'বাসমতি কাচ্চি ১ পিস', p:250}, {n:'২ পিস কাচ্চি', p:320}, {n:'বিফ তেহারী', p:150}, {n:'শাহী মোরগ পোলাও', p:160}, {n:'চিকেন রোস্ট', p:130}, {n:'বোরহানী (১ লিটার)', p:200}],
-            'v5': [{n:'চিকেন ফ্রাই (১ পিস)', p:79}, {n:'ক্রিসপি উইংস (৪ পিস)', p:150}, {n:'স্মোকি পিৎজা (৮")', p:220}, {n:'চিকেন চাউমিন', p:130}, {n:'নাচোস (স্পেশাল)', p:160}],
-            'v6': [{n:'জুনিয়র বার্গার', p:60}, {n:'মিষ্টার মিট বক্স', p:150}, {n:'স্পাইসি চিকেন (৯ পিস)', p:280}, {n:'রেগুলার নাচোস', p:150}],
-            'v7': [{n:'চিকেন মোমো (৬ পিস)', p:120}, {n:'নাগা মোমো (৬ পিস)', p:140}, {n:'ফ্রেঞ্চ ফ্রাই', p:60}, {n:'বিবিকিউ উইংস', p:160}],
-            'vcake': [{n:'চকোলেট কেক (১ কেজি)', p:800}, {n:'ভ্যানিলা কেক', p:700}, {n:'পেস্ট্রি', p:80}]
+            'kl': [
+                {n:'বাসমতি কাচ্চি (২ পিস)', p:320}, {n:'বাসমতি কাচ্চি (১ পিস)', p:250}, {n:'বাসমতি কাচ্চি (নলি)', p:280},
+                {n:'বাসমতি কাচ্চি এক্সট্রা রাইস', p:100}, {n:'শাহী মোরগ পোলাও', p:160}, {n:'প্লেইন পোলাও', p:50},
+                {n:'মুরগির রোস্ট', p:130}, {n:'বিফ তেহারী', p:150}, {n:'বাসমতি চিকেন দম বিরিয়ানি', p:200},
+                {n:'জালি কাবাব', p:25}, {n:'বোরহানী (১ লিটার)', p:200}, {n:'বোরহানী (হাফ লিটার)', p:100},
+                {n:'বোরহানী (গ্লাস)', p:50}, {n:'বাদাম শরবত (১ লিটার)', p:350}, {n:'বাদাম শরবত (গ্লাস)', p:90}
+            ],
+            'rs': [
+                {n:'মিষ্টার মিট বক্স', p:150}, {n:'নাগা ব্লাস্ট বক্স', p:170}, {n:'বারবিকিউ মিট বক্স', p:180},
+                {n:'জুনিয়র বার্গার', p:60}, {n:'সিন্ডিকেট বার্গার', p:80}, {n:'নাগা টুইস্ট বার্গার', p:100},
+                {n:'চিকেন পাস্তা', p:150}, {n:'এগ চাউমিন', p:120}, {n:'চিকেন চাউমিন', p:160},
+                {n:'রেগুলার নাচোস', p:150}, {n:'স্পেশাল নাচোস', p:199}, {n:'স্পাইসি চিকেন (৯ পিস)', p:280}
+            ],
+            'ml': [
+                {n:'চিকেন মোমো (৬ পিস)', p:120}, {n:'চিকেন চিজ মোমো (৬ পিস)', p:150}, {n:'নাগা মোমো (৬ পিস)', p:150},
+                {n:'প্রন মোমো (৬ পিস)', p:200}, {n:'ফ্রেন্স ফ্রাই', p:60}, {n:'চিকেন পপকর্ন', p:130},
+                {n:'ক্লাব চিকেন স্যান্ডউইচ', p:130}, {n:'রেগুলার সাব স্যান্ডউইচ', p:120}, {n:'ল্যাচ্চি', p:60}
+            ],
+            'hd': [
+                {n:'চিকেন ফ্রাই (১ পিস)', p:79}, {n:'ক্রিসপি উইংস (৪ পিস)', p:150}, {n:'ভেজিটেবল পিৎজা (৮")', p:200},
+                {n:'চিকেন পিৎজা (৮")', p:250}, {n:'হাংরি স্পেশাল পিৎজা', p:500}, {n:'চিকেন রাইস বোল', p:120}
+            ],
+            'wf': [
+                {n:'Dark Chocolate With Ice-Cream', p:190}, {n:'Loaded Chocolate With Ice-Cream', p:220},
+                {n:'Whippy Chocolate & Choco', p:190}, {n:'KitKat Waffle', p:200}, {n:'Dark Chocolate', p:140}
+            ]
         };
 
-        let cart = {}, currentV = null;
+        let cart = {}, currentV = "";
 
-        // হেল্প সেন্টার ফাংশন
-        function openHelp() { document.getElementById('helpModal').style.display = 'flex'; }
-        function closeHelp() { document.getElementById('helpModal').style.display = 'none'; }
-
-        // স্লাইডার
-        const track = document.getElementById('slide-track');
-        let index = 0;
-        function autoSlide() { index = (index + 1) % 10; track.style.transform = `translateX(-${index * 10}%)`; }
-        setInterval(autoSlide, 3000);
-
-        let startX = 0;
-        document.getElementById('slider').addEventListener('touchstart', e => startX = e.touches[0].clientX);
-        document.getElementById('slider').addEventListener('touchend', e => {
-            let endX = e.changedTouches[0].clientX;
-            if(startX > endX + 50) index = Math.min(9, index + 1);
-            if(startX < endX - 50) index = Math.max(0, index - 1);
-            track.style.transform = `translateX(-${index * 10}%)`;
-        });
-
-        function loadGrid() {
+        function loadV() {
             const grid = document.getElementById('vGrid');
-            grid.innerHTML = "";
             vendors.forEach(v => {
-                grid.innerHTML += `<div class="vendor-card ${v.cls}" onclick="openM('${v.id}')" data-cat="${v.cat}">
-                    <img src="${v.name}.png" onerror="this.src='https://via.placeholder.com/100?text=Logo'">
+                grid.innerHTML += `<div class="vendor-card c-food" onclick="openM('${v.id}')">
+                    <img src="${v.name}.png" onerror="this.src='https://via.placeholder.com/100'">
                     <h4>${v.name}</h4>
                 </div>`;
             });
         }
 
         function openM(id) {
-            currentV = vendors.find(x => x.id === id);
-            document.getElementById('mTitle').innerText = currentV.name;
+            currentV = vendors.find(v => v.id === id).name;
+            document.getElementById('mTitle').innerText = currentV;
             const cont = document.getElementById('mItems');
             cont.innerHTML = "";
-            const list = allMenus[id] || [{n:'আইটেম ১', p:100}, {n:'আইটেম ২', p:200}];
-            list.forEach(item => {
+            cart = {};
+            allMenus[id].forEach(item => {
                 cont.innerHTML += `<div class="item-card">
-                    <div><b>${item.n}</b><br><span style="color:#ff4757;">${item.p}৳</span></div>
+                    <div><b>${item.n}</b><br>${item.p}৳</div>
                     <div style="display:flex; align-items:center;">
-                        <button onclick="upQ('${item.n}',${item.p},-1)" style="width:30px; height:30px; border:none; border-radius:5px;">-</button>
-                        <span id="q-${item.n.replace(/\s+/g,'_')}" style="margin:0 10px; font-weight:bold;">0</span>
-                        <button onclick="upQ('${item.n}',${item.p},1)" style="width:30px; height:30px; border:none; background:#ff4757; color:white; border-radius:5px;">+</button>
+                        <button onclick="upQ('${item.n}',${item.p},-1)" style="width:30px;">-</button>
+                        <span id="q-${item.n.replace(/\s+/g,'_')}" style="margin:0 10px;">0</span>
+                        <button onclick="upQ('${item.n}',${item.p},1)" style="width:30px; background:#ff4757; color:white; border:none;">+</button>
                     </div>
                 </div>`;
-                cart[item.n] = 0;
             });
             showPage('menu-page');
         }
 
         function upQ(n, p, v) {
-            cart[n] = Math.max(0, (cart[n] || 0) + v);
-            document.getElementById('q-'+n.replace(/\s+/g,'_')).innerText = cart[n];
+            if(!cart[n]) cart[n] = {qty:0, price:p};
+            cart[n].qty = Math.max(0, cart[n].qty + v);
+            document.getElementById('q-'+n.replace(/\s+/g,'_')).innerText = cart[n].qty;
+            calc();
+        }
+
+        function calc() {
             let sub = 0;
-            const list = allMenus[currentV.id] || [{n:'আইটেম ১', p:100}, {n:'আইটেম ২', p:200}];
-            for(let name in cart) {
-                let it = list.find(x => x.n === name);
-                if(it) sub += cart[name] * it.p;
+            const bItems = document.getElementById('bill-items');
+            bItems.innerHTML = "";
+            for(let key in cart) {
+                if(cart[key].qty > 0) {
+                    sub += cart[key].qty * cart[key].price;
+                    bItems.innerHTML += `<div>${key} x ${cart[key].qty} = ${cart[key].qty * cart[key].price}৳</div>`;
+                }
             }
             document.getElementById('sub-t').innerText = sub;
             document.getElementById('total-t').innerText = sub > 0 ? sub + 50 : 0;
         }
 
-        function showPage(id) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            window.scrollTo(0,0);
-        }
-
-        function searchV(q) {
-            document.querySelectorAll('.vendor-card').forEach(v => {
-                v.style.display = v.innerText.toLowerCase().includes(q.toLowerCase()) ? "block" : "none";
-            });
-        }
-
-        function filterCat(c) {
-            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            document.querySelectorAll('.vendor-card').forEach(v => {
-                v.style.display = (c === 'all' || v.getAttribute('data-cat') === c) ? "block" : "none";
-            });
+        function togglePay() {
+            const m = document.getElementById('payM').value;
+            const box = document.getElementById('pay-box');
+            if(m === 'Cash') box.style.display = 'none';
+            else {
+                box.style.display = 'block';
+                document.getElementById('pay-num').innerText = m === 'Nagad' ? "নগদ: 01627885003" : "বিকাশ: 01836476632";
+            }
         }
 
         function finalOrder() {
             const name = document.getElementById('uName').value, addr = document.getElementById('uAddr').value, mob = document.getElementById('uMob').value;
             if(!name || !addr || !mob) return alert("তথ্য দিন!");
             let list = "";
-            for(let i in cart) { if(cart[i] > 0) list += `• ${i}: ${cart[i]} টি\n`; }
-            if(!list) return alert("আইটেম নেই!");
-            let msg = `🛍️ *নতুন অর্ডার: ${currentV.name}*\n${list}\n📍 *ঠিকানা:*\nনাম: ${name}\nফোন: ${mob}\nঠিকানা: ${addr}\n💰 টোটাল: ${document.getElementById('total-t').innerText}৳`;
-            window.location.href = `https://api.whatsapp.com/send?phone=8801627885003&text=${encodeURIComponent(msg)}`;
+            for(let i in cart) if(cart[i].qty > 0) list += `• ${i}: ${cart[i].qty} টি (${cart[i].qty * cart[key].price}৳)\n`;
+            
+            const total = document.getElementById('total-t').innerText;
+            let payMsg = `💳 *পেমেন্ট:* ${document.getElementById('payM').value}`;
+            if(document.getElementById('payM').value !== 'Cash') payMsg += `\n📱 নাম্বার: ${document.getElementById('sender').value}\n🆔 TrxID: ${document.getElementById('trx').value}`;
+
+            let msg = `🍔 *নতুন অর্ডার (Hilsha Express)*\n(${currentV})\n--------------------------\n🛒 *অর্ডার তালিকা:*\n${list}\n--------------------------\n💵 আইটেম টোটাল: ${document.getElementById('sub-t').innerText}৳\n🚚 ডেলিভারি চার্জ: 50৳\n💰 *সর্বমোট বিল: ${total}৳*\n\n📍 *কাস্টমার তথ্য:*\n*নাম:* ${name}\n*ঠিকানা:* ${addr}\n*মোবাইল:* ${mob}\n\n${payMsg}`;
+            window.location.href = `https://wa.me/8801627885003?text=${encodeURIComponent(msg)}`;
         }
 
-        loadGrid();
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+        function openHelp() { document.getElementById('helpModal').style.display = 'flex'; }
+        function closeHelp() { document.getElementById('helpModal').style.display = 'none'; }
+        
+        // স্লাইডার অটো
+        let idx = 0;
+        setInterval(() => { idx = (idx + 1) % 10; document.getElementById('slide-track').style.transform = `translateX(-${idx * 10}%)`; }, 3000);
+
+        loadV();
     </script>
 </body>
 </html>
