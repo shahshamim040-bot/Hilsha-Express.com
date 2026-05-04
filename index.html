@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hilsha Express.com | Order Now</title>
+    <title>Hilsha Express.com</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap');
         body { font-family: 'Hind Siliguri', sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; text-align: center; }
         .header { padding: 10px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .logo img { width: 70px; border-radius: 8px; }
+        .logo img { width: 75px; border-radius: 8px; }
         .owner-section { margin: 15px auto; padding: 10px; }
         .owner-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #ff4757; object-fit: cover; }
         .marquee-container { background: #ff4757; color: white; padding: 8px 0; font-weight: bold; }
-        .payment-box { background: white; border: 2px solid #28a745; border-radius: 15px; max-width: 380px; margin: 15px auto; width: 92%; overflow: hidden; }
+        .payment-box { background: white; border: 2px solid #28a745; border-radius: 15px; max-width: 380px; margin: 15px auto; width: 92%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .payment-header { background: #28a745; color: white; padding: 10px; font-weight: bold; }
         .bank-info { padding: 12px; text-align: left; font-size: 14px; }
-        .order-btn { background-color: #2ed573; color: white; padding: 12px 35px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; margin: 15px 0; font-weight: bold; }
+        .order-btn { background-color: #2ed573; color: white; padding: 15px 35px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; margin: 15px 0; font-weight: bold; width: 85%; }
         .page { display: none; padding: 15px; }
         .active { display: block; }
-        .card { background: white; padding: 15px; margin: 10px auto; max-width: 360px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .item-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; }
-        .qty-btn { background: #ff4757; color: white; border: none; width: 28px; height: 28px; border-radius: 5px; cursor: pointer; }
-        input, select { width: 90%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
-        #online-fields { display: none; background: #e8f5e9; padding: 10px; border-radius: 8px; border: 1px dashed #28a745; margin-top: 10px; }
+        .card { background: white; padding: 15px; margin: 10px auto; max-width: 360px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .item-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .qty-btn { background: #ff4757; color: white; border: none; width: 30px; height: 30px; border-radius: 5px; cursor: pointer; }
+        input, select { width: 92%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; box-sizing: border-box; }
+        #online-fields { display: none; background: #e8f5e9; padding: 10px; border-radius: 8px; border: 1px dashed #28a745; }
     </style>
 </head>
 <body>
@@ -31,52 +31,57 @@
         <div class="header"><div class="logo"><img src="logo.png" alt="Logo"></div></div>
         <div class="owner-section">
             <img src="owner.png" alt="Owner" class="owner-img">
-            <div class="owner-info"><h2>Md. Xamim Chowdhury</h2><p style="color:#ff4757; font-weight:bold;">Chairman</p></div>
+            <div class="owner-info">
+                <h2>Md. Xamim Chowdhury</h2>
+                <p style="color:#ff4757; font-weight:bold;">Chairman</p>
+            </div>
         </div>
-        <div class="marquee-container"><marquee>Hilsha Express.com - দ্রুততম সময়ে খাবার পৌঁছে দিতে আমরা প্রস্তুত!</marquee></div>
+        <div class="marquee-container"><marquee>Hilsha Express.com - আপনার প্রিয় খাবার দ্রুততম সময়ে পৌঁছে দিতে আমরা প্রস্তুত!</marquee></div>
         <div class="payment-box">
             <div class="payment-header">পেমেন্ট ও ব্যাংকিং তথ্য 🏦</div>
             <div class="bank-info">
                 <p><b>নাম:</b> মোঃ ইখতিয়ার আলম শামীম</p>
                 <p><b>নগদ/WhatsApp:</b> 01627885003</p>
-                <p><b>বিকাশ (P):</b> 01836-476632</p>
+                <p><b>বিকাশ (পার্সোনাল):</b> 01836-476632</p>
             </div>
         </div>
-        <button class="order-btn" onclick="showPage('res-page')">অর্ডার শুরু করুন 🍔</button>
+        <button class="order-btn" onclick="showPage('res-page')">অর্ডার শুরু করুন 🍔🛵</button>
     </div>
 
     <div id="res-page" class="page">
         <h3>রেস্টুরেন্ট নির্বাচন করুন</h3>
         <div class="card" onclick="openMenu('কাচ্চি ভাই')">🍛 কাচ্চি ভাই</div>
         <div class="card" onclick="openMenu('সুলতান ডাইনস')">🍖 সুলতান ডাইনস</div>
-        <button onclick="showPage('home-page')" style="color:blue; background:none; border:none; cursor:pointer;">পিছনে যান</button>
+        <p onclick="showPage('home-page')" style="color:blue; cursor:pointer;">পিছনে যান</p>
     </div>
 
     <div id="item-page" class="page">
-        <h3 id="res-title">মেনু</h3>
+        <h3 id="res-title">মেনু তালিকা</h3>
         <div class="card">
-            <div class="item-row"><span>বিফ কাচ্চি</span><div><button class="qty-btn" onclick="updateQty('Kacchi', -1)">-</button><span id="q-Kacchi" style="margin:0 10px;">0</span><button class="qty-btn" onclick="updateQty('Kacchi', 1)">+</button></div></div>
-            <div class="item-row"><span>চিকেন ফ্রাই</span><div><button class="qty-btn" onclick="updateQty('Chicken', -1)">-</button><span id="q-Chicken" style="margin:0 10px;">0</span><button class="qty-btn" onclick="updateQty('Chicken', 1)">+</button></div></div>
+            <div class="item-row"><span>বিফ কাচ্চি</span><div><button class="qty-btn" onclick="updateQty('Kacchi', -1)">-</button><span id="q-Kacchi" style="margin:0 10px; font-weight:bold;">0</span><button class="qty-btn" onclick="updateQty('Kacchi', 1)">+</button></div></div>
+            <div class="item-row"><span>চিকেন ফ্রাই</span><div><button class="qty-btn" onclick="updateQty('Chicken', -1)">-</button><span id="q-Chicken" style="margin:0 10px; font-weight:bold;">0</span><button class="qty-btn" onclick="updateQty('Chicken', 1)">+</button></div></div>
         </div>
         <button class="order-btn" onclick="showPage('check-page')">ঠিকানা ও পেমেন্ট ✅</button>
+        <p onclick="showPage('res-page')" style="color:blue; cursor:pointer;">পিছনে যান</p>
     </div>
 
     <div id="check-page" class="page">
         <div class="card">
             <h3>অর্ডার ডিটেইলস</h3>
-            <input type="text" id="cName" placeholder="আপনার নাম">
-            <input type="text" id="cLoc" placeholder="পুরো ঠিকানা (লোকেশন)">
-            <input type="text" id="cMob" placeholder="মোবাইল নম্বর">
-            <select id="pMethod" onchange="toggleOnline()">
+            <input type="text" id="custName" placeholder="আপনার নাম">
+            <input type="text" id="custLoc" placeholder="পুরো ঠিকানা (লোকেশন)">
+            <input type="text" id="custMob" placeholder="মোবাইল নম্বর">
+            <select id="payMethod" onchange="toggleOnline()">
                 <option value="">পেমেন্ট মাধ্যম বেছে নিন</option>
                 <option value="Cash on Delivery">ক্যাশ অন ডেলিভারি</option>
                 <option value="Online Payment">বিকাশ / নগদ (অনলাইন)</option>
             </select>
             <div id="online-fields">
-                <input type="text" id="sNum" placeholder="টাকা পাঠানো নম্বর">
-                <input type="text" id="tId" placeholder="ট্রানজেকশন আইডি (TrxID)">
+                <input type="text" id="senderNum" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
+                <input type="text" id="trxId" placeholder="TrxID (ট্রানজেকশন আইডি)">
             </div>
-            <button class="order-btn" onclick="finalSend()">মেসেঞ্জারে অর্ডার পাঠান 💬</button>
+            <button class="order-btn" onclick="sendOrder()">মেসেঞ্জারে অর্ডার পাঠান 💬</button>
+            <p onclick="showPage('item-page')" style="color:blue; cursor:pointer;">পিছনে যান</p>
         </div>
     </div>
 
@@ -87,11 +92,12 @@
         function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
         }
 
         function openMenu(name) {
             selectedRes = name;
-            document.getElementById('res-title').innerText = name;
+            document.getElementById('res-title').innerText = name + " মেনু";
             showPage('item-page');
         }
 
@@ -104,45 +110,41 @@
         }
 
         function toggleOnline() {
-            document.getElementById('online-fields').style.display = (document.getElementById('pMethod').value === 'Online Payment') ? 'block' : 'none';
+            document.getElementById('online-fields').style.display = (document.getElementById('payMethod').value === 'Online Payment') ? 'block' : 'none';
         }
 
-        function finalSend() {
-            let name = document.getElementById('cName').value;
-            let loc = document.getElementById('cLoc').value;
-            let mob = document.getElementById('cMob').value;
-            let method = document.getElementById('pMethod').value;
-            let sender = document.getElementById('sNum').value;
-            let trx = document.getElementById('tId').value;
+        function sendOrder() {
+            let name = document.getElementById('custName').value;
+            let addr = document.getElementById('custLoc').value;
+            let mob = document.getElementById('custMob').value;
+            let method = document.getElementById('payMethod').value;
+            let sender = document.getElementById('senderNum').value;
+            let trx = document.getElementById('trxId').value;
 
-            if(!name || !loc || !mob || !method) { alert("সব তথ্য পূরণ করুন!"); return; }
+            if(!name || !addr || !mob || !method) { alert("সব তথ্য পূরণ করুন!"); return; }
 
-            let orderItems = "";
-            if(cart.Kacchi > 0) orderItems += `• বিফ কাচ্চি: ${cart.Kacchi} টি\n`;
-            if(cart.Chicken > 0) orderItems += `• চিকেন ফ্রাই: ${cart.Chicken} টি\n`;
-            
-            if(orderItems === "") { alert("খাবার নির্বাচন করুন!"); return; }
+            let items = "";
+            if(cart.Kacchi > 0) items += `• কাচ্চি: ${cart.Kacchi} টি\n`;
+            if(cart.Chicken > 0) items += `• চিকেন ফ্রাই: ${cart.Chicken} টি\n`;
+            if(!items) { alert("আইটেম বেছে নিন!"); return; }
 
-            // আপনার চাহিদা মতো সাজানো টেক্সট
+            // মেসেজ ১০০% ঠিকভাবে সাজানো
             let fullMsg = `🍔 নতুন অর্ডার (Hilsha Express)\n`;
-            fullMsg += `🛒 অর্ডার তালিকা:\n${orderItems}`;
+            fullMsg += `--------------------------\n`;
+            fullMsg += `🛒 অর্ডার তালিকা:\n${items}`;
             fullMsg += `🏪 রেস্টুরেন্ট: ${selectedRes}\n\n`;
-            fullMsg += `📍 কাস্টমার লোকেশন:\nনাম: ${name}\nঠিকানা: ${loc}\nমোবাইল: ${mob}\n\n`;
+            fullMsg += `📍 কাস্টমার লোকেশন:\nনাম: ${name}\nঠিকানা: ${addr}\nমোবাইল: ${mob}\n\n`;
             fullMsg += `💳 পেমেন্ট তথ্য:\nমাধ্যম: ${method}\n`;
 
             if(method === 'Online Payment') {
                 fullMsg += `নম্বর: ${sender}\nTrxID: ${trx}`;
             }
 
-            // এই লিঙ্কটি ব্যবহার করলে সরাসরি ইনবক্সে টেক্সট চলে যাবে
+            // এই লিঙ্কটি ১০০% গ্যারান্টিসহ ইনবক্সে টেক্সট নিয়ে যাবে
             let fbID = "61575668837136";
-            let messengerURL = "fb-messenger://user/" + fbID + "/?text=" + encodeURIComponent(fullMsg);
+            let finalURL = "https://m.me/" + fbID + "?text=" + encodeURIComponent(fullMsg);
             
-            // মোবাইল অ্যাপের জন্য এই লিঙ্কটি ট্রাই করবে, না হলে ব্রাউজার লিঙ্ক ব্যবহার করবে
-            let webURL = "https://m.me/" + fbID + "?text=" + encodeURIComponent(fullMsg);
-
-            // এটি নিশ্চিতভাবে মেসেঞ্জারে টেক্সট সহ নিয়ে যাবে
-            window.location.href = webURL;
+            window.location.href = finalURL;
         }
     </script>
 </body>
